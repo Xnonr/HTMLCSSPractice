@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>HTML And CSS Practice</title>
+	<meta charset = "UTF-8">
+	<link href = "../css/styles.css" rel = "stylesheet">
+</head>
+<body>
+
+<!-- Course Name: HTML CSS Creating Forms -->
+<!-- Instructor: Clarissa Peterson -->
+<!-- Via LinkedIn Learning -->
+
+<h1>HTML And CSS Practice</h1>
+
+<!-- All fields should be in <div>s where possible in order to render styling easier -->
+<form id = "question" method = "post" action = "">
+	
+	<!-- Form Submission Security
+		 HTTPS -> HTTPS OR HTTP -> HTTPS: Data Encrypted
+		 HTTP -> HTTP OR HTTPS -> HTTP: Data NOT Encrypted
+	 -->
+	
+	<!-- Attributes Explained 
+		 type: Selects the different types of inputs
+		 name: Labels the data when it is sent to the server, should be unique, needed for every input, select & text area
+		 for: Allows for the linking of a label with an input, should be used on every label area
+		 value: Sets default values for entry fields, radio buttons, checkboxes and option elements, as well as text displayed on buttons
+		 checked: Sets which radio buttons or checkboxes are already selected upon the form's displaying
+		 selected: Sets which options on select elements already selected upon the form's displaying
+		 placeholder: Used to provide a hint text inside a form field
+		 min / max: Specify which values should be accepted as inputs
+		 step: Sets increments of values that will be accepted as inputs
+		 maxlength: Sets the maximum number of characters that will be accepted in a field
+		 multiple: Allows users to enter multiple values within a field
+		 pattern: Sets the requirement for the exact characters that can be entered in a field
+		 required: Tells the browser that the field must be filled in before the form can be submitted
+		 aria-required: Used to tell screenreaders that a field is required as a backup, should always be used in tandem with required
+		 disabled: No data can be entered in the field which will be grayed out, will not be submitted
+		 readonly: No data can be entered, but the previously set value will be visible and submitted
+		 hidden: The value cannot be seen but will be submitted
+		 action: Tells the browser where the data should be sent
+		 method: Tells the browser how the data should be submitted
+		 	get: Data is included in the URL, not recommended and less secure
+		 	post: Browser sends an HTTP request to ask for a response, the data is in the body of the request, preferred and more secure
+	-->
+	
+	<!-- Text Input Type -->
+	<label for = "name">Name: </label>
+	<input type = "text" id = "name" name = "name" required> <br>
+	
+	<label for = "favcolor">Favorite Color: </label>
+	<input type = "text" name = "favcolor" id = "favcolor"> <br>
+	
+	<label for = "patternText">Any 5 Letters: </label>
+	<input type = "text" name = "patternText" id = "patternText" pattern = "[A-Za-z]{3}"> <br>
+	
+	
+	<!-- Email Input Type -->
+	<!-- multiple: Allows for multiple email addresses to be entered, separated via a comma -->
+	<label for = "email">Email: </label>
+	<input type = "email" id = "email" name = "email" multiple placeholder = "email@gmail.com"> <br>
+	
+	
+	<!-- URL Input Type -->
+	<label for = "website">Website URL: </label>
+	<input type = "url" id = "website" name = "website"> <br>
+	
+	
+	<!-- Number Input Type -->
+	<!-- step: Valid numbers can only equal those within the given interval -->
+	<label for = "number">Number: </label>
+	<input type = "number" name = "number" id = "number" min = -10 max = 1000 step = 2> <br>
+	
+	
+	<!-- Date Input Type -->
+	<!-- Cannot style the base calendar with CSS -->
+	<label for = "birthday">Birthday: </label>
+	<input type = "date" name = "birthday" id = "birthday" min = "2017-01-01" max = "2017-12-31"> <br>
+	
+	
+	<!-- Time Input Type -->
+	<!-- step: Time is measured in seconds, 30 minutes = 1800 seconds -->
+	<label for = "time">Time: </label>
+	<input type = "time" name = "time" id = "time" step = "1800"> <br>
+	
+	
+	<!-- Telephone Input Type -->
+	<label for = "phone">Phone Number: </label>
+	<input type = "tel" name = "phone" id = "phone"> <br>
+	
+	
+	<!-- Radio Buttons Input Type -->
+	<fieldset>
+		<legend>Favorite Color: </legend>
+		<label for = "blue">Blue</label>
+		<input type = "radio" name = "favcolor2" value = "blue" id = "blue">
+	
+		<label for = "red">Red</label>
+		<input type = "radio" name = "favcolor2" value = "red" id = "red">
+	
+		<label for = "green">Green</label>
+		<input type = "radio" name = "favcolor2" value = "green" id = "green"> <br>
+	</fieldset>
+	
+	
+	<!-- Checkbox Buttons Input Type -->
+	<fieldset>
+		<legend>Favorite Music: </legend>
+		<label for = "rock"> <input type = "checkbox" name = "favmusic" value = "rock" id = "rock">Rock</label>
+	
+		<label for = "synth"> <input type = "checkbox" name = "favmusic" value = "synth" id = "synth">Synth</label>
+	
+		<label for = "classical"> <input type = "checkbox" name = "favmusic" value = "classical" id = "classical">Classical</label> <br>
+	</fieldset>
+	
+	
+	<!-- Checkbox Image Buttons Input Type -->
+	<fieldset>
+		<legend>Favorite Plane: </legend>
+		<label for = "fighter">Fighter Plane</label>
+		<input type = "checkbox" name = "favplane" value = "fighter" id = "fighter">
+	
+		<label for = "bomber">Bomber Plane</label>
+		<input type = "checkbox" name = "favplane" value = "bomber" id = "bomber">
+	
+		<label for = "biplane">Biplane</label>
+		<input type = "checkbox" name = "favplane" value = "biplane" id = "biplane"> <br>
+	</fieldset>
+	
+	
+	<!-- Drop Down Menu Input Type -->
+	<label for = "genre">Favorite Literary Genre: </label> <br>
+	<select name = "genre" id = "genre">
+		<option value = "scifi">Science Fiction</option>
+		<option value = "fantasy">Fantasy</option>
+		<option value = "historical">Historical</option>
+		<option value = "mystery">Mystery</option>
+	</select> <br>
+	
+	
+	<!-- Multiple Select Drop Down Menu Input Type -->
+	<!-- multiple: Allows for a multiple select from the drop down menu -->
+	<!-- size: How many options can be seen at one time without scrolling within the drop down menu -->
+	<!-- optgroup: Allows for non selectable categories within the drop down menu -->
+	<label for = "pizza">Favorite Pizza Topping: </label> <br>
+	<select name = "pizza" id = "pizza" multiple size = "7">
+		<optgroup label = "veggies"></optgroup>
+		<option value = "mushrooms">Mushrooms</option>
+		<option value = "onions">Onions</option>
+		<optgroup label = "meat"></optgroup>
+		<option value = "pepperoni">Pepperoni</option>
+		<option value = "sausage">Sausage</option>
+	</select> <br>
+	
+	
+	<!-- Text Area Input Type-->
+	<label for = "poem">Write A Poem: </label> <br>
+	<textarea id = "poem" name = "poem"></textarea> <br>
+	
+	
+	<!-- Color Input Type -->
+	<!-- Not supported for all browsers: -->
+	<!-- Supported: Chrome, Edge, Firefox, Opera & Android -->
+	<!-- Excluded: Safari, iOS -->
+	<!-- Saved as a hexadecimal value -->
+	<label for = "color">Color: </label> <br>
+	<input type = "color" name = "color" id = "color"> <br>
+	
+	
+	<!-- File Input Type -->
+	<!-- accept: Determines which file type will be accepted for upload -->
+	<!-- Does not always work, easily hackable -->
+	<label for = "resume">Upload Resume: </label>
+	<input type = "file" name = "resumer" id = "resume" accept = "image/*"> <br>
+	
+	
+	<!-- Password Input Type -->
+	<!-- Does not encrypt the input, merely disguises it on the client side browser -->
+	<label for = "password">Password: </label>
+	<input type = "password" name = "password" id = "password"> <br>
+	
+	
+	<!-- Hidden Input Type -->
+	<!-- As this is hidden, there is no need for a label -->
+	<input type = "hidden" value = "1234" name = "tracking">
+	
+	
+	<!-- Range Slider Input Type -->
+	<!-- Does not actually display values, therefore labeling must be done via JavaScript -->
+	<label for = "range">Range of Number Values: </label>
+	<input type = "range" name = "range" id = "range" min = "1" max = "10" step = "1"> <br>
+	
+	
+	<!-- Search Input Type -->
+	<!-- Functions exactly like a Text input type but you can clear the input field with a button click -->
+	<!-- Weird in terms of how CSS applies to them, so use with caution -->
+	<label for = "search">Search: </label>
+	<input type = "search" name = "search" id = "search"> <br> <br>
+	
+	
+	<!-- Submit Button -->
+	<!-- Submit is the default value for the button's word -->
+	<input type = "submit" value = "Submit"> <br>
+	
+	
+	<!-- Reset Button -->
+	<!-- Resets and clears out all of the current form's input values, use with caution -->
+	<input type = "reset" value = "Clear All Inputs"> <br>
+	
+	<!-- Button -->
+	<!-- A button with no action associated with it, has to be customized via JavaScript -->
+	<!-- Can be formated directly or via a separate css file instructions -->
+	<button type = "submit">A Custom Action <strong>Button</strong></button> <br> <br>
+	
+	<!-- Image Button -->
+	<!-- A button via the form of an image which can be clicked on -->
+	<label for = "brainButton">This Brain Is A Button: </label> <br>
+	<input type = "image" src = "../images/brain.png" alt = "brain" width = "100" name = "brainButton" id = "brainButton"> <br>
+
+
+	<!-- Link To Another Page Button -->
+	<a href = "">
+		<img src = "../images/brain.png" alt = "brain" width = "10" name = "brainButton2" id = "brainButton2">
+	</a> <br>
+	
+	<!--  Styling a Button -->
+	<div id = "styled">
+		"Styled Buttons: "
+		<input type = "submit" value = "Input">
+		<button type = "submit">
+			"Button"
+			<span>button</span>
+		</button>
+	</div>
+	
+</form>
+
+</body>
+</html>

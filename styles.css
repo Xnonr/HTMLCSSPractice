@@ -1,0 +1,257 @@
+@charset "UTF-8";
+
+/* Use MQTest.io or similar tools to test screen width when determining the size of the the screen */
+
+/* Ensure similar font across the entire HTML page */
+button, input, select, textarea {
+	font-family: inherit;
+	font-size: 100%;
+}
+
+/* Box Sizing: Affects how the browser interprets the box model of various input fields
+			   Mostly has to do with how padding and margins are rendered around an elements
+			   Should be used on all forms from hereon
+   content-box: Default, padding is added on the outside of the box itself, changing the box's shape
+   border-box: More adaptable, padding is taken from the box, inside is adjusted, does not change shape
+
+*/
+input, textarea, select {
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+/* Styling Text Inputs */
+/* em: Allows the boxes to change with the font size */
+input[type = "text"], input[type = "url"], input[type = "email"], input[type = "tel"],
+input[type = "password"], input[type = "search"], input[type = "number"], input[type = "date"],
+input[type = "time"], textarea {
+	width: 12em;
+	padding: 5px;
+	margin: 10px 10px 10px 0px;
+	border-radius: 7px; /* Rounded Corners */
+	background-color: antiquewhite;
+}
+
+input[type = "url"] {
+	width: 20em;
+}
+
+
+/* Cannot directly format checkboxes, but you can format their labels */
+
+/* For making custom image checkboxes */
+/* Use 'opacity: 0' rather than 'display: none' as the latter cannot be seen by screen readers */
+/*
+input[type = "checkbox"] {
+	opacity: 0;
+}
+
+input[type = "checkbox"] + label {
+	background:  url(seat.jpg) left center no-repeat;
+	background-size: 1em 1em;
+	padding-left: 1.5em;
+	margin-left: -1.5em;
+}
+
+input[type = "checkbox"]:checked + label {
+	background: url(plane.jpg) left center no-repeat;
+	background-size: 1em 1em;
+}
+
+input[type = "checkbox"] {
+	opacity: 0;
+	width: 0;
+	margin: 0;
+}
+
+/* 
+/* Button is unchecked 
+input[type = "checkbox"] + label {
+	border: 2px solid white;
+	background-color: orange;
+	padding: 4px 10px;
+	border-radius: 7px;
+	display: inline-block;
+	width: 4em;
+	text-align:center;
+}
+
+/* Button is checked
+input[type = "checkbox"]:checked + label {
+	background-color: black;
+	font-weight: bold;
+}
+*/
+
+textarea {
+	vertical-align: middle;
+}
+
+fieldset {
+	color: yellow;
+}
+
+legend {
+	color: purple;
+}
+
+input[type = "date"] {
+	font-size: 100%;
+	color: green;
+}
+
+input[type = "file"] {
+	font-size: 100%;
+	color: red;
+}
+
+/* Formats all of the labels to be both blue and bold in terms of font*/
+label {
+	color: blue;
+	font-weight: bold;
+	padding: 5px;
+	width: 6em;
+	display: inline-block;
+}
+
+/* Formats the labels of a particular input type via adjacent sibling selector */
+input[type = "date"] + label {
+	color: orange;
+}
+
+
+/* Adds color to the input fields to indicate whether they are valid or invalid before attempting to submit */
+input:valid {
+	border: 2px solid green;
+}
+
+input:invalid {
+	border: 2px dashed red;
+}
+
+select {
+	display: block;
+	margin-bottom: 20px;
+	
+	/* Removes default formating */
+	-webkit-appearence: none;
+	-moz-appearence: none;
+	appearence: none;
+	
+	background-color: white;
+}
+
+/* Applies to any selector that does not have the multiple attribute */
+/* Giving the drop down menu a custom symbol rather than default arrows */
+select:not([multiple]) {
+	background: url(radio.jpg) right center no-repeat;\
+	background-size: 1em 1em;
+	padding-right: 1em;
+}
+
+select {
+	padding: 8px 1em 8px 8px;
+	background-color: yellow;
+	border: 2px solid black;
+}
+
+option {
+	padding: 5px;
+}
+
+optgroup {
+	border: 1px dashed solid black;
+	padding: 5px;
+}
+
+/* Button styles vary by browser, must be taken into consideration */
+/* Adding a style to a button will remove all default styles as well */
+/* cursor: Changes the cursor when hovering over the button */
+/* #: Indicates the specific ID of what to style */
+#styled input, #styled button {
+	/* Manually removes default styles */
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	
+	border: 2px solid red;
+	background-color: white;
+	border-radious: 8px;
+	
+	cursor: pointer;
+	
+}
+
+/* Applies to styled and un-styled buttons */
+input, button {
+	
+}
+
+/* Styles the span within the button element, not possible with a standard input element */
+button span {
+	color: red;
+	font-style: italic;
+}
+
+/* focus: Styles the specific elements only whilst they are in focus */
+#styled input[type = "submit"]:focus, #styled button[type = "submit"]:focus {
+	border: 2px solid green;
+	outline: none;
+}
+
+/* hover: Styles the specific elements only whilst a cursor is hovering over them */
+#styled input[type = "submit"]:hover, #styled button[type = "submit"]:hover {
+	border: 2px solid red;
+}
+
+/* active: Styles the specific elements only as said element is being clicked */
+#styled input[type = "submit"]:active, #styled button[type = "submit"]:active {
+	background-color: orange;
+}
+
+
+/* Pseudo Classes */
+/* A keyword which specifies the state of an element */
+/* focus: Triggered when  user clicks on, taps or tabs into a field */
+/* active: Triggered when a user activates the field, such as clicking a button */
+/* checked: When an option in radio buttons or checkboxes has been checked */
+/* selected: When an option in a select menu has been selected */
+/* valid or invalid: Refers to when any requirements for a field have been met */
+/* in-range or out-of-range: Refer to when a range has been set for a numeric field and the value is within the range */
+/* required or option: Refer to whether the required attribute has been set on a field */
+input:focus {
+	background-color: green;
+}
+
+input:active {
+	background-color: yellow;
+}
+
+input[type = "checkbox"]:checked + label {
+	
+}
+
+input[type = "number"]:valid {
+	border: 5px solid green;
+}
+
+input[type = "number"]:invalid {
+	border: 5px solid red;
+}
+
+input[type = "number"]:in-range {
+	border: 5px solid green;
+}
+
+input[type = "number"]:out-of-range {
+	border: 5px solid green;
+}
+
+input:required {
+	border: 5px solid purple;
+}
+
+/* Allows the page to switch between styles and display modes depending upon the area of the screen */
+@media (min-width: 35em) {
+	
+}
